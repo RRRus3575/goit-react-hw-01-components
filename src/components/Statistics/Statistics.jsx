@@ -1,17 +1,24 @@
 import data from './data.json';
+import PropTypes from 'prop-types';
 
 export const Statistics = () => {
   return (
     <section>
-      <ul className="stat-list" key={data}>
+      <ul className="stat-list">
         <h2 className="title">UPLOAD STATS</h2>
-        {data.map(item => (
-          <li className="item" key={item.id}>
-            <span class="label">{item.label}</span>
-            <span class="percentage">{item.percentage}%</span>
+        {data.map(({ id, label, percentage }) => (
+          <li className="item" key={id}>
+            <span className="label">{label}</span>
+            <span className="percentage">{percentage}%</span>
           </li>
         ))}
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  data: PropTypes.string,
+  percentage: PropTypes.number,
+  label: PropTypes.string,
 };

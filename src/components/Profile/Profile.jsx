@@ -1,4 +1,5 @@
 import users from './users.json';
+import PropTypes from 'prop-types';
 
 export const Profile = () => {
   const { username, avatar, tag, location, stats } = users;
@@ -27,4 +28,12 @@ export const Profile = () => {
       </ul>
     </div>
   );
+};
+
+Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  avatar: PropTypes.string,
+  stats: PropTypes.objectOf(PropTypes.number),
 };
