@@ -1,16 +1,26 @@
 import PropTypes from 'prop-types';
+import css from './Statistics.module.css';
+import { Switch } from './Switch';
 
 export const Statistics = ({ events }) => {
   return (
     <section>
-      <ul className="stat-list">
-        <h2 className="title">UPLOAD STATS</h2>
-        {events.map(({ id, label, percentage }) => (
-          <li className="item" key={id}>
-            <span className="label">{label}</span>
-            <span className="percentage">{percentage}%</span>
-          </li>
-        ))}
+      <ul className={css.stat}>
+        <div className={css.head}>
+          <h2 className={css.title}>UPLOAD STATS</h2>
+        </div>
+        <div className={css.list}>
+          {events.map(({ id, label, percentage }) => (
+            <li
+              className={css.item}
+              key={id}
+              style={{ backgroundColor: Switch(label) }}
+            >
+              <span className={css.label}>{label}</span>
+              <span className={css.percentage}>{percentage}%</span>
+            </li>
+          ))}
+        </div>
       </ul>
     </section>
   );
