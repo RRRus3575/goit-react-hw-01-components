@@ -6,9 +6,11 @@ export const Statistics = ({ events, title }) => {
   return (
     <section>
       <ul className={css.stat}>
-        <div className={css.head}>
-          {title && <h2 className={css.title}>{title}</h2>}
-        </div>
+        {title && (
+          <div className={css.head}>
+            <h2 className={css.title}>{title}</h2>
+          </div>
+        )}
         <div className={css.list}>
           {events.map(({ id, label, percentage }) => (
             <li
