@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 import { Switch } from './Switch';
 
-export const Statistics = ({ events }) => {
+export const Statistics = ({ events, title }) => {
   return (
     <section>
       <ul className={css.stat}>
         <div className={css.head}>
-          <h2 className={css.title}>UPLOAD STATS</h2>
+          {title && <h2 className={css.title}>{title}</h2>}
         </div>
         <div className={css.list}>
           {events.map(({ id, label, percentage }) => (
